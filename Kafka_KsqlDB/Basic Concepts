@@ -1,0 +1,17 @@
+## Communication Model:
+
+### Point to point:
+
+### Publish-subscribe-pattern:
+
+## Streams Stored:
+
+### Commit log:
+
+### The attribute of commit logs:
+
+- Append-only manner.
+- The ordered sequence of events: ordered by Position( offset ), not some date column.
+- Multiple consumer groups can read from the same logs, and maintain their own position.
+
+## Topics and Partitions:
