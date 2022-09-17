@@ -1,0 +1,29 @@
+#docker-compose exec kafka bash
+docker exec -it kafka /bin/bash
+
+kafka-topics --bootstrap-server localhost:9092 --create --topic users --partitions 4 --replication-factor 1
+
+kafka-topics --bootstrap-server localhost:9092 --describe --topic users
+
+kafka-console-producer --bootstrap-server localhost:9092 --property key.separator=, --property parse.key=true --topic users
+
+1,mitch
+2,elyse
+3,isable
+4,sammy
+5,good
+6,job
+7,chris
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic users --from-beginning 
+
+# more info about event: 
+kafka-console-consumer --bootstrap-server localhost:9092 --topic users --property print.timestamp=true --property print.key=true --property print.value=true --from-beginning
+
+CreateTime:1663403221499    1   mitch
+CreateTime:1663403246470    3   isable
+CreateTime:1663403263305    7   chris
+CreateTime:1663403256899    5   good
+CreateTime:1663403259609    6   job
+CreateTime:1663403250979    4   sammy
+CreateTime:1663403241763    2   elyse
